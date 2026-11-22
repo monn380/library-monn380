@@ -33,13 +33,13 @@ List *list_create() {
 int list_add(List *list,String_View name, bool hfactor) {
   if(!list->head){
     list->head = entry_alloc();
-    list->head = { .name = sv_dup(name), .hfactor = hfactor};
+    list->head.name = sv_dup(name); list-list->head.hfactor = hfactor;
     return 0;
   } else {
-    List_Entry *i = list->head.next;
-      while(!i) { i = i.next;}
+    List_Entry *i = list->head->next;
+      while(!i) { i = i->next;}
       i.next = entry_alloc();
-      i->next = { .name = sv_dup(name), .hfactor = hfactor};
+      i->next.name = sv_dup(name); i->next.hfactor = hfactor;
       return 0;
   }
 }  
